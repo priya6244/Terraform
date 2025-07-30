@@ -1,6 +1,6 @@
 resource "aws_instance" "instance_terraform" {
   ami                    = var.ami_id #left side and right side need not to be same
-  instance_type          = var.instance_type
+  instance_type          = var.instance_type #if same also, no issue
   vpc_security_group_ids = [aws_security_group.my_sg.id]
   tags                   = var.tags
 }
@@ -8,8 +8,7 @@ resource "aws_instance" "instance_terraform" {
 resource "aws_security_group" "my_sg" {
   name        = var.sg_name
   description = var.sg_description
-  #Usually we allow everything in egress
-  #block
+  #Usually we allow everything in egress block
   egress {
     from_port        = 0
     to_port          = 0

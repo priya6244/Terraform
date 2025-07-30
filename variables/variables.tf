@@ -14,6 +14,7 @@ variable "instance_type" {
   default     = "t2.micro"
   description = "This is the instance type"
 }
+
 #tags is always map type
 variable "tags" {
   type = map #optional
